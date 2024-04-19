@@ -1,6 +1,7 @@
 from telebot import types, TeleBot
 from token import TOKEN
 from .hand_webAppData import controller
+
 bot = TeleBot(TOKEN)
 
 
@@ -11,8 +12,7 @@ def start_admin(message):
 
 @bot.message_handler(content_types="web_app_data")  # получаем отправленные данные
 def answer(webAppMes):
-    get_funck_webbapp(bot, webAppMes.chat.id, webAppMes.web_app_data.data)
-
+    controller.get_funck_webbapp(bot, webAppMes.chat.id, webAppMes.web_app_data.data)
 
 @bot.message_handler(content_types="text")  # получаем отправленные данные
 def move(message):
